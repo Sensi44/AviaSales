@@ -1,0 +1,5 @@
+#none
+node_modules
+build
+.idea
+.git
