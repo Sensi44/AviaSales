@@ -1,0 +1,23 @@
+$main-color: #2196f3;
+$main-background: #F3F7FA;
+$second-background: #FFFFFF;
+$text-gray: #A0B0B9;
+$text-black: #4A4A4A;
+$main-hover: #F1FCFF;
+
+.tb {
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.all-border {
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+// Стили компонента, имеют приоритет над шаблонными
+//.test {
+//  @extend .all-border;
+//}
+

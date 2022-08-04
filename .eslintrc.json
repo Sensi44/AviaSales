@@ -32,7 +32,7 @@
     ],
     "parser": "@babel/eslint-parser",
     "rules": {
-        "no-console": "error", //"off"
+        "no-console": "off", //"error"
         "linebreak-style": [0, "unix"],
         "operator-linebreak": "off",
         "quotes": ["error", "single"],

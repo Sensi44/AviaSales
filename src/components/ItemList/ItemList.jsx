@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './Item.scss';
+import './ItemList.scss';
 // import classes from '../../assets/css-modules/Item.module.scss';
 
-const Item = (props) => {
+function ItemList() {
   const a = 5;
   console.log(a);
   return (
@@ -12,6 +12,6 @@ const Item = (props) => {
       <p>1</p>
     </div>
   );
-};
+}
 
-export default Item;
+export default ItemList;

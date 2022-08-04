@@ -1,17 +1,15 @@
 import React from 'react';
 
-import './Item.scss';
+import './Filters.scss';
 // import classes from '../../assets/css-modules/Item.module.scss';
 
-const Item = (props) => {
-  const a = 5;
-  console.log(a);
+function Filters() {
   return (
     <div>
       <p>1</p>
       <p>1</p>
     </div>
   );
-};
+}
 
-export default Item;
+export default Filters;
