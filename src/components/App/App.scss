@@ -1,0 +1,46 @@
+$main-background: #F3F7FA;
+.all-border {
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.tb {
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+}
+
+article {
+  background-color: $main-background;
+  width: 960px;
+  height: 1360px;
+  margin: 5px 0 5px 0;
+  @extend .tb;
+  @extend .all-border;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin: 50px auto 50px auto;
+  @extend .tb;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}

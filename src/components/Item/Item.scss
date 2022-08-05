@@ -1,20 +1,33 @@
-.main {
-  padding: 5px;
+.all-border {
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
-.list {
-  border: 3px solid green;
-  width: 250px;
+.ticket {
+  width: 502px;
+  height: 184px;
+  padding: 20px;
+  margin-bottom: 20px;
+  @extend .all-border;
 }
 
-.red {
-  border: 3px solid red;
+.ticket-header {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.blue {
-  border: 3px solid blue;
+.ticket-race {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.blue-2 {
-  border: 5px solid blueviolet;
+.ticket-data {
+  width: 140px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
