@@ -7,9 +7,12 @@ const initialState = {
 };
 
 const chooseBoxes = (state, action) => {
-  if ()
-  if (state.SHOW_ALL) {
-    return {
+  let temp = {
+    ...state,
+    [action.filter]: !state[action.filter],
+  };
+  if (temp.SHOW_ALL) {
+    temp = {
       SHOW_ALL: true,
       SHOW_NON: true,
       SHOW_1: true,
@@ -17,15 +20,14 @@ const chooseBoxes = (state, action) => {
       SHOW_3: true,
     };
   }
-  return state;
+  return temp;
 };
 
 const checkBoxes = (state = initialState, action) => {
   switch (action.type) {
     case 'BOX_TOGGLE':
       return {
-        ...chooseBoxes(state),
-        [action.filter]: !state[action.filter],
+        ...chooseBoxes(state, action),
       };
     default:
       return state;
