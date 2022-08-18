@@ -11,7 +11,7 @@ const chooseBoxes = (state, action) => {
     ...state,
     [action.filter]: !state[action.filter],
   };
-  if (temp.SHOW_ALL) {
+  if (action.filter === 'SHOW_ALL' && temp.SHOW_ALL) {
     temp = {
       SHOW_ALL: true,
       SHOW_NON: true,
@@ -20,7 +20,7 @@ const chooseBoxes = (state, action) => {
       SHOW_3: true,
     };
   }
-  if (!temp.SHOW_ALL) {
+  if (action.filter === 'SHOW_ALL' && !temp.SHOW_ALL) {
     temp = {
       SHOW_ALL: false,
       SHOW_NON: false,
@@ -29,6 +29,27 @@ const chooseBoxes = (state, action) => {
       SHOW_3: false,
     };
   }
+  if (temp.SHOW_ALL && action.filter !== 'SHOW_ALL' && !temp[action.filter]) {
+    temp = {
+      ...temp,
+      SHOW_ALL: false,
+    };
+  }
+
+  if (
+    !temp.SHOW_ALL &&
+    action.filter !== 'SHOW_ALL' &&
+    temp.SHOW_NON &&
+    temp.SHOW_1 &&
+    temp.SHOW_2 &&
+    temp.SHOW_3
+  ) {
+    temp = {
+      ...temp,
+      SHOW_ALL: true,
+    };
+  }
+
   return temp;
 };
 
