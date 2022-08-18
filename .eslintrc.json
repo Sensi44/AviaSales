@@ -34,8 +34,10 @@
     "rules": {
         "no-console": "off", //"error"
         "linebreak-style": [0, "unix"],
+        "arrow-body-style": "off",
         "operator-linebreak": "off",
         "quotes": ["error", "single"],
+        "default-param-last": ["off"],
         "react/react-in-jsx-scope": "off",
         "react/prop-types": 0,
         "import/no-unresolved": [2, { "caseSensitive": false }],
@@ -65,12 +67,12 @@
         "no-plusplus": "off",
         "eol-last": "off",
         "implicit-arrow-linebreak": ["error", "beside"],
-        "prettier/prettier": [
-            "error",
-            {
-                "endOfLine": "auto"
-            }
-        ],
+//        "prettier/prettier": [
+//            "error",
+//            {
+//                "endOfLine": "crlf"
+//            }
+//        ],
         "max-len": ["error", 120, {
             "ignoreUrls": true
         }],

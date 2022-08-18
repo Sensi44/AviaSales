@@ -1,11 +1,10 @@
 import React from 'react';
 
 import './Item.scss';
-// import classes from '../../assets/css-modules/Item.module.scss';
+// import classes from '../../assets/css-modules/CheckBox.module.scss';
 
 const Item = (props) => {
   const a = 5;
-  console.log(a);
   return (
     <div className='ticket'>
       <header className='ticket-header'>

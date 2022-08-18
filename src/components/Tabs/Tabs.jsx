@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Tabs.scss';
-// import classes from '../../assets/css-modules/Item.module.scss';
+// import classes from '../../assets/css-modules/CheckBox.module.scss';
 
 function Tabs() {
   return (

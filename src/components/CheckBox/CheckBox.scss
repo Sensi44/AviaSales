@@ -1,0 +1,33 @@
+.all-border {
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.ticket {
+  width: 502px;
+  height: 184px;
+  padding: 20px;
+  margin-bottom: 20px;
+  @extend .all-border;
+}
+
+.ticket-header {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticket-race {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ticket-data {
+  width: 140px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}

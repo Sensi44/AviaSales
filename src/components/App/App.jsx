@@ -4,7 +4,7 @@ import './App.scss';
 import Filters from '../Filters';
 import ItemList from '../ItemList';
 import Tabs from '../Tabs';
-// import classes from '../../assets/css-modules/Item.module.scss';
+// import classes from '../../assets/css-modules/CheckBox.module.scss';
 
 function App() {
   return (
@@ -19,7 +19,6 @@ function App() {
           <aside>
             <Filters />
           </aside>
-
           <div className='tickets'>
             <Tabs />
             <ItemList />
