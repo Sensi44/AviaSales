@@ -6,8 +6,8 @@ import FilterCheckBox from '../../containers/FilterCheckBox';
 
 function Filters() {
   return (
-    <div>
-      <p>Количество пересадок</p>
+    <>
+      <div>Количество пересадок</div>
       <FilterCheckBox check={VisibilityCheckBoxes.SHOW_ALL}>Все</FilterCheckBox>
       <FilterCheckBox check={VisibilityCheckBoxes.SHOW_NON}>
         Без пересадок
@@ -21,7 +21,7 @@ function Filters() {
       <FilterCheckBox check={VisibilityCheckBoxes.SHOW_3}>
         3 пересадки
       </FilterCheckBox>
-    </div>
+    </>
   );
 }
 
