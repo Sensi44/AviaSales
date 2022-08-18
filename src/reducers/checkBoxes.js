@@ -20,6 +20,15 @@ const chooseBoxes = (state, action) => {
       SHOW_3: true,
     };
   }
+  if (!temp.SHOW_ALL) {
+    temp = {
+      SHOW_ALL: false,
+      SHOW_NON: false,
+      SHOW_1: false,
+      SHOW_2: false,
+      SHOW_3: false,
+    };
+  }
   return temp;
 };
 
