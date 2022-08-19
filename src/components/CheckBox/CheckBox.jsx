@@ -5,6 +5,7 @@ import './CheckBox.scss';
 
 const CheckBox = ({ checked, children, onClick }) => {
   const info = rename(children);
+
   return (
     <div className='checkBox'>
       <label htmlFor={info} className='check option'>

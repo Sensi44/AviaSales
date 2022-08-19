@@ -35,10 +35,11 @@ aside > div:first-child {
 
 .checkBox > label {
   display: block;
-  padding: 10px 0 10px 50px;
+  padding: 9px 0 9px 50px;
   line-height: $lh;
   font-family: $font;
   cursor: pointer;
+  border: 1px solid rgba(0,0,0,0);
 }
 
 .checkBox:hover {
@@ -65,7 +66,9 @@ aside > div:first-child {
   background: no-repeat 50% 50% url(../../assets/img/shape.png);
 }
 
-
+.check__input:focus + .check__box {
+  border: 2px solid #2196F3;
+}
 
 
 
