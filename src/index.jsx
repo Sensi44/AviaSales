@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-import reducer from './reducers/index';
+import reducer from './assets/toolKitSlice';
+// import reducer from './reducers/index';
 import 'antd/dist/antd.min.css';
 import App from './components/App';
 
@@ -13,7 +14,7 @@ const logger = () => (next) => (action) => {
   const result = next(action);
   console.log(store.getState());
   console.log(store.getState().checkBoxes);
-  console.log(store.getState().tickets);
+  // console.log(store.getState().tickets);
   return result;
 };
 

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import chooseBoxes from './chooseBoxes';
 
 const ticketsSlice = createSlice({
-  name: 'toolkit-tickets',
+  name: 'test',
   initialState: {
     checkBoxes: {
       SHOW_ALL: true,
@@ -21,16 +21,19 @@ const ticketsSlice = createSlice({
   },
   reducers: {
     boxToggle(state, action) {
-      state = chooseBoxes(state, action);
-    },
-    startRequest(state) {
-      state.loading = true;
+      const result = chooseBoxes(state.checkBoxes, action);
+      state.checkBoxes = {
+        ...result,
+      };
     },
   },
 });
-console.log(ticketsSlice.getInitialState());
-console.log(ticketsSlice.actions);
 
-const { reducer } = ticketsSlice;
-export const { boxToggle, startRequest } = ticketsSlice.actions;
+const { actions, reducer } = ticketsSlice;
+export const { boxToggle } = actions;
+
+// console.log(ticketsSlice.getInitialState());
+// console.log(ticketsSlice.actions);
+// console.log(reducer);
+
 export default reducer;
