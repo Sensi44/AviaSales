@@ -11,6 +11,7 @@ const logger = () => (next) => (action) => {
   console.log('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬');
   console.group(action.type);
   const result = next(action);
+  console.log(store.getState());
   console.log(store.getState().checkBoxes);
   console.log(store.getState().tickets);
   return result;
@@ -22,6 +23,7 @@ const store = configureStore({
 });
 
 store.dispatch({ type: 'START_REQUEST' });
+store.dispatch({ type: 'FETCH_TICKETS', stop: true, items: [1, 2, 3] });
 
 render(
   <Provider store={store}>
