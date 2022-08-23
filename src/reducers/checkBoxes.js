@@ -1,11 +1,11 @@
 import chooseBoxes from '../assets/chooseBoxes';
 
 const initialState = {
-  SHOW_ALL: false,
-  SHOW_NON: false,
-  SHOW_1: false,
-  SHOW_2: false,
-  SHOW_3: false,
+  SHOW_ALL: true,
+  SHOW_NON: true,
+  SHOW_1: true,
+  SHOW_2: true,
+  SHOW_3: true,
 };
 
 const checkBoxes = (state = initialState, action) => {

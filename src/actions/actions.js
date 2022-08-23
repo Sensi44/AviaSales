@@ -10,3 +10,13 @@ export const VisibilityCheckBoxes = {
   SHOW_2: 'SHOW_2',
   SHOW_3: 'SHOW_3',
 };
+
+export const startRequest = () => ({
+  type: 'START_REQUEST',
+});
+
+export const recieveTickets = () => {
+  return (dispatch) => {
+    dispatch(startRequest());
+  };
+};

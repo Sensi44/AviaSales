@@ -2,10 +2,9 @@ import React from 'react';
 
 import './ItemList.scss';
 import Item from '../Item';
-// import classes from '../../assets/css-modules/CheckBox.module.scss';
 
-function ItemList() {
-  const a = 5;
+function ItemList(props) {
+  // console.log(props);
   return (
     <div className='item-list'>
       <Item />
