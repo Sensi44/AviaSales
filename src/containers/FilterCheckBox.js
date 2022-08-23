@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
-import { boxToggle } from '../actions/actions';
+// import { boxToggle } from '../actions/actions';
+import { boxToggle } from '../assets/toolKitSlice';
 import CheckBox from '../components/CheckBox';
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: () => {
+      console.log(boxToggle(ownProps.check));
       dispatch(boxToggle(ownProps.check));
     },
   };

@@ -21,7 +21,7 @@ const ticketsSlice = createSlice({
   },
   reducers: {
     boxToggle(state, action) {
-      chooseBoxes(state, action);
+      state = chooseBoxes(state, action);
     },
     startRequest(state) {
       state.loading = true;
@@ -29,6 +29,8 @@ const ticketsSlice = createSlice({
   },
 });
 console.log(ticketsSlice.getInitialState());
+console.log(ticketsSlice.actions);
 
-export default ticketsSlice.reducer;
+const { reducer } = ticketsSlice;
 export const { boxToggle, startRequest } = ticketsSlice.actions;
+export default reducer;

@@ -11,7 +11,7 @@ const initialState = {
 };
 
 const checkBoxes = createReducer(initialState, (builder) => {
-  builder.addCase('BOX_TOGGLE', (state, action) => {
+  builder.addCase('toolkit-tickets/boxToggle', (state, action) => {
     return chooseBoxes(state, action);
   });
 });

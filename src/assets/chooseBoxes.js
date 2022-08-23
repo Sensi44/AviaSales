@@ -1,6 +1,5 @@
 // Логика переключения чекбоксов
 const chooseBoxes = (state, action) => {
-  console.log(action);
   let currentState = {
     ...state,
     [action.payload]: !state[action.payload],
