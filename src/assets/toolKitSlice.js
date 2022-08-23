@@ -21,6 +21,7 @@ const ticketsSlice = createSlice({
   },
   reducers: {
     boxToggle(state, action) {
+      console.log(action);
       const result = chooseBoxes(state.checkBoxes, action);
       state.checkBoxes = {
         ...result,
