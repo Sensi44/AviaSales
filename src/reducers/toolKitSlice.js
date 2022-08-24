@@ -1,6 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import chooseBoxes from '../assets/chooseBoxes';
+import { fetchId, getTickets } from '../actions/actions';
 
 const initialState = {
   checkBoxes: {
@@ -13,10 +14,29 @@ const initialState = {
   tickets: {
     loading: false,
     error: false,
-    stop: false,
+    stop: true,
     items: [],
+    searchId: null,
   },
 };
+
+export const fetchTickets = createAsyncThunk(
+  'user/fetchTickets',
+  async (yourData) => {
+    const { searchId } = yourData;
+    startRequest();
+    const response = await getTickets(searchId);
+    return response;
+  }
+);
+
+export const fetchSearchId = createAsyncThunk(
+  'user/fetchSearchId',
+  async (id, thunkAPI) => {
+    const response = await fetchId();
+    return response;
+  }
+);
 
 const ticketsSlice = createSlice({
   name: 'toolkit',
@@ -31,12 +51,24 @@ const ticketsSlice = createSlice({
     startRequest(state) {
       state.tickets.loading = true;
     },
-    testFetch(state, action) {
+    asyncSearchId(state, action) {
       console.log(action.payload);
+    },
+  },
+  extraReducers: {
+    [fetchTickets.fulfilled]: (state, action) => {
       state.tickets.loading = false;
-      state.tickets.error = false;
+      // console.log(action.payload.stop);
       state.tickets.stop = action.payload.stop;
-      state.tickets.items = action.payload.items;
+      for (const ticket of action.payload.tickets) {
+        state.tickets.items.push(ticket);
+      }
+    },
+    [fetchTickets.rejected]: (state, action) => {
+      console.log('ОШЫБКА');
+    },
+    [fetchSearchId.fulfilled]: (state, action) => {
+      state.tickets.searchId = action.payload;
     },
   },
 });
