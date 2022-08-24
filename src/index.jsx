@@ -29,16 +29,6 @@ const store = configureStore({
   },
 });
 
-// store.dispatch({ type: 'FETCH_TICKETS', stop: true, items: [1, 2, 3] });
-// store.dispatch(
-//   testFetch({
-//     stop: true,
-//     items: [1, 2, 3],
-//   })
-// );
-
-// store.dispatch(fetchTickets());
-
 render(
   <Provider store={store}>
     <App />

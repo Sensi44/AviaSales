@@ -2,50 +2,32 @@ import React, { useEffect } from 'react';
 
 import './ItemList.scss';
 import Item from '../Item';
-import {
-  fetchSearchId,
-  fetchTickets,
-  startRequest,
-} from '../../reducers/toolKitSlice';
+import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 
 function ItemList(props) {
-  const { searchId, stop } = props;
+  const { searchId, stop, items } = props;
 
-  useEffect(() => {
-    props.dispatch(fetchSearchId());
-  }, []);
-
-  const rerunFetchTickets = () => {
-    console.log('ЗАГРУЗКА БИЛЕТОВ');
+  let timer;
+  // eslint-disable-next-line no-shadow
+  const tick = () => {
     props.dispatch(
       fetchTickets({
         searchId,
       })
     );
+    // eslint-disable-next-line no-unused-expressions
+    !stop ? (timer = setTimeout(tick, 1000)) : null;
   };
 
   useEffect(() => {
-    // props.dispatch(startRequest());
-    if (searchId) {
-      props.dispatch(
-        fetchTickets({
-          searchId,
-        })
-      );
-    }
-    let timerId;
+    props.dispatch(fetchSearchId());
+  }, []);
 
-    if (!stop) {
-      timerId = setTimeout(function tick() {
-        console.log('tick');
-        rerunFetchTickets();
-        console.log(stop);
-        timerId = setTimeout(tick, 1000);
-      }, 1000);
-      if (stop) {
-        console.log('таймер остановился');
-        clearTimeout(timerId);
-      }
+  useEffect(() => {
+    if (searchId && !stop) {
+      tick();
+    } else {
+      clearTimeout(timer);
     }
   }, [searchId, stop]);
 

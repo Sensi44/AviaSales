@@ -4,7 +4,7 @@ import ItemList from '../components/ItemList';
 
 const mapStateToProps = (state) => {
   const { loading, items, stop, searchId } = state.tickets;
-  // console.log(stop);
+  console.log(stop);
   // console.log(loading, items);
   return {
     loading,

@@ -31,7 +31,7 @@ export const fetchId = async () => {
 };
 
 export const getTickets = async (id) => {
-  console.log(id);
+  // console.log(id);
   const url = `https://front-test.dev.aviasales.ru/tickets?searchId=${id}`;
   const result = await axios.get(url).then((resp) => resp.data);
   return result;

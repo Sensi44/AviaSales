@@ -14,7 +14,7 @@ const initialState = {
   tickets: {
     loading: false,
     error: false,
-    stop: true,
+    stop: false,
     items: [],
     searchId: null,
   },
