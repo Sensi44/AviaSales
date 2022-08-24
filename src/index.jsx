@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-import reducer from './assets/toolKitSlice';
+import reducer, { startRequest, testFetch } from './reducers/toolKitSlice';
 // import reducer from './reducers/index';
 import 'antd/dist/antd.min.css';
 import App from './components/App';
@@ -14,7 +14,7 @@ const logger = () => (next) => (action) => {
   const result = next(action);
   console.log(store.getState());
   console.log(store.getState().checkBoxes);
-  // console.log(store.getState().tickets);
+  console.log(store.getState().tickets);
   return result;
 };
 
@@ -23,9 +23,14 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger]),
 });
 
-store.dispatch({ type: 'START_REQUEST' });
-store.dispatch({ type: 'FETCH_TICKETS', stop: true, items: [1, 2, 3] });
-
+store.dispatch(startRequest());
+// store.dispatch({ type: 'FETCH_TICKETS', stop: true, items: [1, 2, 3] });
+store.dispatch(
+  testFetch({
+    stop: true,
+    items: [1, 2, 3],
+  })
+);
 render(
   <Provider store={store}>
     <App />
