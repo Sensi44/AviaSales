@@ -8,7 +8,7 @@ const Item = (props) => {
   return (
     <div className='ticket'>
       <header className='ticket-header'>
-        <span className='ticket-cost'>13400</span>
+        <span className='ticket-cost'>123</span>
         <img
           className='ticket-image'
           src='http://pics.avs.io/99/36/S7.png'

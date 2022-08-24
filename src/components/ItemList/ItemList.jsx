@@ -9,7 +9,7 @@ import {
 } from '../../reducers/toolKitSlice';
 
 function ItemList(props) {
-  const { searchId, stop } = props;
+  const { searchId, stop, items } = props;
   const timerRef = useRef(null);
 
   useEffect(() => {
