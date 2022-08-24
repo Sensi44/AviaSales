@@ -51,8 +51,8 @@ const ticketsSlice = createSlice({
     startRequest(state) {
       state.tickets.loading = true;
     },
-    asyncSearchId(state, action) {
-      console.log(action.payload);
+    toggleStop(state) {
+      state.tickets.stop = !state.tickets.stop;
     },
   },
   extraReducers: {
@@ -74,6 +74,6 @@ const ticketsSlice = createSlice({
 });
 
 const { actions, reducer } = ticketsSlice;
-export const { boxToggle, startRequest, testFetch } = actions;
+export const { boxToggle, startRequest, testFetch, toggleStop } = actions;
 
 export default reducer;
