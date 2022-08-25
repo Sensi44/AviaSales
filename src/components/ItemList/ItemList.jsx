@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Spin } from 'antd';
 
 import './ItemList.scss';
 import Item from '../Item';
@@ -36,6 +37,7 @@ function ItemList(props) {
 
   return (
     <div className='item-list'>
+      {stop ? <span>Все билеты загружены</span> : <Spin />}
       <Item />
       <Item />
       <Item />
