@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './Item.scss';
 // import classes from '../../assets/css-modules/CheckBox.module.scss';
 
@@ -45,6 +45,19 @@ const Item = (props) => {
       </div>
     </div>
   );
+};
+
+Item.defaultProps = {
+  todos: [],
+};
+
+Item.propTypes = {
+  // page: PropTypes.number,
+  // getPages: PropTypes.func,
+  // search: PropTypes.string,
+  // genres: PropTypes.array,
+  // changePage: PropTypes.func,
+  // ratedMovies: PropTypes.array,
 };
 
 export default Item;
