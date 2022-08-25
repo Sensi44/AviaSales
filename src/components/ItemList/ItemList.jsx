@@ -3,6 +3,7 @@ import { Spin } from 'antd';
 
 import './ItemList.scss';
 import Item from '../Item';
+import startLoadingBar from '../../assets/loadingBar';
 import {
   fetchSearchId,
   fetchTickets,
@@ -33,11 +34,25 @@ function ItemList(props) {
     }
   }, [searchId]);
 
+  useEffect(() => {
+    if (!stop) {
+      startLoadingBar(items.length);
+    }
+  }, [items]);
+
   if (stop) clearInterval(timerRef.current);
 
   return (
     <div className='item-list'>
       {stop ? <span>Все билеты загружены</span> : <Spin />}
+      {!stop ? (
+        <div className='progress'>
+          <div className='progress-bg'>
+            <div className='progress-bar_add' />
+            <div className='progress-bar' />
+          </div>
+        </div>
+      ) : null}
       <Item />
       <Item />
       <Item />

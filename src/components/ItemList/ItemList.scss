@@ -1,3 +1,49 @@
 .tickets {
   width: 502px;
 }
+
+.progress-bg {
+  min-width: 400px;
+  max-width: 500px;
+  height: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #BDD8FF;
+  position: relative;
+}
+
+.progress-bar {
+  position: absolute;
+  background-color: #2A72FC;
+  width: 0%;
+  height: 100%;
+  animation: bar 1.2s linear infinite;
+  transition: width 0.35s linear;
+}
+
+.progress-bar_add {
+  position: absolute;
+  top: 0px;
+  background-image: url(../../../src/assets/img/line.png);
+  background-repeat: repeat-x;
+  z-index: 1000;
+  width: 0%;
+  height: 10px;
+  animation: bar2 2.4s linear infinite;
+  transition: width 0.35s linear;
+}
+
+@keyframes bar {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-color: #6C8CD5;
+  }
+}
+
+@keyframes bar2 {
+  100% {
+    background-position: 300px 0;
+  }
+}
