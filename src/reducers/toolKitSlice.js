@@ -12,7 +12,6 @@ const initialState = {
     SHOW_3: true,
   },
   tickets: {
-    loading: false,
     error: false,
     stop: false,
     items: [],
@@ -24,7 +23,6 @@ export const fetchTickets = createAsyncThunk(
   'user/fetchTickets',
   async (yourData) => {
     const { searchId } = yourData;
-    startRequest();
     const response = await getTickets(searchId);
     return response;
   }
@@ -32,7 +30,7 @@ export const fetchTickets = createAsyncThunk(
 
 export const fetchSearchId = createAsyncThunk(
   'user/fetchSearchId',
-  async (id, thunkAPI) => {
+  async () => {
     const response = await fetchId();
     return response;
   }
@@ -48,17 +46,9 @@ const ticketsSlice = createSlice({
         ...result,
       };
     },
-    startRequest(state) {
-      state.tickets.loading = true;
-    },
-    toggleStop(state) {
-      state.tickets.stop = !state.tickets.stop;
-    },
   },
   extraReducers: {
     [fetchTickets.fulfilled]: (state, action) => {
-      state.tickets.loading = false;
-      // console.log(action.payload.stop);
       state.tickets.stop = action.payload.stop;
       for (const ticket of action.payload.tickets) {
         state.tickets.items.push(ticket);
@@ -74,6 +64,6 @@ const ticketsSlice = createSlice({
 });
 
 const { actions, reducer } = ticketsSlice;
-export const { boxToggle, startRequest, testFetch, toggleStop } = actions;
+export const { boxToggle, testFetch } = actions;
 
 export default reducer;
