@@ -1,14 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { Spin } from 'antd';
 
 import './ItemList.scss';
 import Item from '../Item';
+import LoaderLine from '../LoaderLine';
 import startLoadingBar from '../../assets/loadingBar';
-import {
-  fetchSearchId,
-  fetchTickets,
-  toggleStop,
-} from '../../reducers/toolKitSlice';
+import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 
 function ItemList(props) {
   const { searchId, stop, items } = props;
@@ -44,15 +40,7 @@ function ItemList(props) {
 
   return (
     <div className='item-list'>
-      {stop ? <span>Все билеты загружены</span> : <Spin />}
-      {!stop ? (
-        <div className='progress'>
-          <div className='progress-bg'>
-            <div className='progress-bar_add' />
-            <div className='progress-bar' />
-          </div>
-        </div>
-      ) : null}
+      {!stop ? <LoaderLine /> : 'Все билеты загружены'}
       <Item />
       <Item />
       <Item />

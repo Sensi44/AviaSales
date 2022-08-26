@@ -4,7 +4,6 @@ import './Item.scss';
 // import classes from '../../assets/css-modules/CheckBox.module.scss';
 
 const Item = (props) => {
-  const a = 5;
   return (
     <div className='ticket'>
       <header className='ticket-header'>
@@ -55,7 +54,7 @@ Item.propTypes = {
   // page: PropTypes.number,
   // getPages: PropTypes.func,
   // search: PropTypes.string,
-  // genres: PropTypes.array,
+  todos: PropTypes.array,
   // changePage: PropTypes.func,
   // ratedMovies: PropTypes.array,
 };
