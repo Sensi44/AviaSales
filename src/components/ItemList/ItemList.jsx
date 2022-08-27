@@ -9,6 +9,9 @@ import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 function ItemList(props) {
   const { searchId, stop, items } = props;
   const timerRef = useRef(null);
+  const elements = items.map((item, index) => {
+    return <Item key={index} />;
+  });
 
   useEffect(() => {
     props.dispatch(fetchSearchId());
@@ -31,9 +34,7 @@ function ItemList(props) {
   }, [searchId]);
 
   useEffect(() => {
-    if (!stop) {
-      startLoadingBar(items.length);
-    }
+    if (!stop) startLoadingBar(items.length);
   }, [items]);
 
   if (stop) clearInterval(timerRef.current);
@@ -41,6 +42,7 @@ function ItemList(props) {
   return (
     <div className='item-list'>
       {!stop ? <LoaderLine /> : 'Все билеты загружены'}
+      <div>{elements.length}</div>
       <Item />
       <Item />
       <Item />
