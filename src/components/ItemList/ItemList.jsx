@@ -5,12 +5,17 @@ import Item from '../Item';
 import LoaderLine from '../LoaderLine';
 import startLoadingBar from '../../assets/loadingBar';
 import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
+import acceptFilters from '../../assets/uesCheckBoxes';
 
 function ItemList(props) {
-  const { searchId, stop, items } = props;
+  const { searchId, stop, items, checkBoxes } = props;
   const timerRef = useRef(null);
-  const elements = items.map((item, index) => {
-    return <Item key={index} />;
+  const itemWithFilters = items.filter((item) => {
+    return acceptFilters(item, checkBoxes);
+  });
+  console.log(itemWithFilters);
+  const elements = itemWithFilters.map((item, index) => {
+    return <Item key={index} ticket={item} />;
   });
 
   useEffect(() => {
@@ -24,7 +29,7 @@ function ItemList(props) {
           searchId,
         })
       );
-    }, 1000);
+    }, 3000);
   };
 
   useEffect(() => {
@@ -43,9 +48,9 @@ function ItemList(props) {
     <div className='item-list'>
       {!stop ? <LoaderLine /> : 'Все билеты загружены'}
       <div>{elements.length}</div>
-      <Item />
-      <Item />
-      <Item />
+      {elements.length
+        ? elements.slice(0, 5)
+        : 'Нет подходящих билетов мой лорд'}
     </div>
   );
 }

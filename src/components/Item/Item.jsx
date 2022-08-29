@@ -1,45 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Item.scss';
+import stopsName from '../../assets/stopsName';
+import getTime from '../../assets/getTime';
 // import classes from '../../assets/css-modules/CheckBox.module.scss';
 
 const Item = (props) => {
+  const { price, carrier, segments } = props.ticket;
+  let [
+    { origin, destination, date, duration, stops },
+    {
+      origin: origin2,
+      destination: destination2,
+      date: date2,
+      duration: duration2,
+      stops: stops2,
+    },
+  ] = segments;
+  const textStops = stopsName(stops.length);
+  const textStops2 = stopsName(stops2.length);
+
+  stops = stops.join(', ');
+  stops2 = stops2.join(', ');
+  const times1 = getTime(date, duration);
+  const times2 = getTime(date2, duration2);
   return (
     <div className='ticket'>
       <header className='ticket-header'>
-        <span className='ticket-cost'>123</span>
+        <span className='ticket-cost'>{`${price} Р`}</span>
         <img
           className='ticket-image'
-          src='http://pics.avs.io/99/36/S7.png'
-          alt='#'
+          src={`http://pics.avs.io/99/36/${carrier}.png`}
+          alt={carrier}
         />
       </header>
       <div className='ticket-race'>
         <div className='ticket-data'>
-          <span>mow-hkt</span>
-          <time>10-45 - 08:00</time>
+          <span>{`${origin} ${destination}`}</span>
+          <time>{`${times1[0]} - ${times1[1]}`}</time>
         </div>
         <div className='ticket-data'>
           <span>в пути</span>
-          <time>21ч 15м</time>
+          <time>{times1[2]}</time>
         </div>
         <div className='ticket-data'>
-          <span>2 пересадки</span>
-          <time>HKG, JNB</time>
+          <span>{textStops}</span>
+          <time>{[stops]}</time>
         </div>
       </div>
+
       <div className='ticket-race'>
         <div className='ticket-data'>
-          <span>mow-hkt</span>
-          <time>10-45 - 08:00</time>
+          <span>{`${origin2} ${destination2}`}</span>
+          <time>{`${times2[0]} - ${times2[1]}`}</time>
         </div>
         <div className='ticket-data'>
           <span>в пути</span>
-          <time>21ч 15м</time>
+          <time>{times2[2]}</time>
         </div>
         <div className='ticket-data'>
-          <span>2 пересадки</span>
-          <time>HKG, JNB</time>
+          <span>{textStops2}</span>
+          <time>{[stops2]}</time>
         </div>
       </div>
     </div>
@@ -47,7 +69,7 @@ const Item = (props) => {
 };
 
 Item.defaultProps = {
-  todos: [],
+  ticket: {},
 };
 
 Item.propTypes = {

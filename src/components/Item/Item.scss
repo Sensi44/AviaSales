@@ -16,12 +16,27 @@
   height: 36px;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.ticket-cost {
+  color: #2196F3;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .ticket-race {
   display: flex;
   justify-content: space-between;
+  height: 39px;
+}
+
+.ticket-header + .ticket-race {
   margin-bottom: 10px;
 }
 
@@ -30,4 +45,24 @@
   text-align: left;
   display: flex;
   flex-direction: column;
+}
+
+.ticket-data > span {
+  font-family: 'Open Sans', serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #A0B0B9;
+  font-style: normal;
+}
+
+.ticket-data > time {
+  font-family: 'Open Sans', serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  color: #4A4A4A;
+  font-style: normal;
 }

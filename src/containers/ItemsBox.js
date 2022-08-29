@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import ItemList from '../components/ItemList';
 
 const mapStateToProps = (state) => {
-  const { loading, items, stop, searchId } = state.tickets;
+  const { items, stop, searchId } = state.tickets;
+  const { checkBoxes } = state;
   return {
-    loading,
     items,
     searchId,
     stop,
+    checkBoxes,
   };
 };
 
