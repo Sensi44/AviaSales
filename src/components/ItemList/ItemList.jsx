@@ -10,13 +10,13 @@ import acceptFilters from '../../assets/uesCheckBoxes';
 function ItemList(props) {
   const { searchId, stop, items, checkBoxes } = props;
   const timerRef = useRef(null);
-  const itemWithFilters = items.filter((item) => {
-    return acceptFilters(item, checkBoxes);
-  });
-  console.log(itemWithFilters);
-  const elements = itemWithFilters.map((item, index) => {
-    return <Item key={index} ticket={item} />;
-  });
+  const elements = items
+    .filter((item) => {
+      return acceptFilters(item, checkBoxes);
+    })
+    .map((item, index) => {
+      return <Item key={index} ticket={item} />;
+    });
 
   useEffect(() => {
     props.dispatch(fetchSearchId());
@@ -29,7 +29,7 @@ function ItemList(props) {
           searchId,
         })
       );
-    }, 3000);
+    }, 1200);
   };
 
   useEffect(() => {
@@ -46,8 +46,8 @@ function ItemList(props) {
 
   return (
     <div className='item-list'>
-      {!stop ? <LoaderLine /> : 'Все билеты загружены'}
-      <div>{elements.length}</div>
+      {!stop ? <LoaderLine /> : 'Все билеты загружены -'}
+      <span> {elements.length} </span>
       {elements.length
         ? elements.slice(0, 5)
         : 'Нет подходящих билетов мой лорд'}
