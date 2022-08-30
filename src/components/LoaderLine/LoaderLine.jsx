@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import './LoaderLine.scss';
 import startLoadingBar from '../../assets/loadingBar';
@@ -20,5 +21,15 @@ function LoaderLine(props) {
 
   return <div>{!stop ? bar : null}</div>;
 }
-// <span className>Все билеты загружены</span>
+
+LoaderLine.defaultProps = {
+  stop: false,
+  items: [],
+};
+
+LoaderLine.propTypes = {
+  stop: PropTypes.bool,
+  items: PropTypes.array,
+};
+
 export default LoaderLine;

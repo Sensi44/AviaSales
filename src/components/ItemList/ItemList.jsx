@@ -1,6 +1,9 @@
+// eslint-disable-next-line import/order
 import React, { useEffect, useRef } from 'react';
 
 import './ItemList.scss';
+import PropTypes from 'prop-types';
+
 import Item from '../Item';
 import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 import acceptFilters from '../../assets/uesCheckBoxes';
@@ -60,5 +63,30 @@ function ItemList(props) {
     </div>
   );
 }
+
+ItemList.defaultProps = {
+  searchId: '',
+  stop: false,
+  items: [],
+  checkBoxes: {},
+  filters: {},
+};
+
+ItemList.propTypes = {
+  searchId: PropTypes.string,
+  stop: PropTypes.bool,
+  items: PropTypes.arrayOf(PropTypes.object),
+  checkBoxes: PropTypes.shape({
+    SHOW_ALL: PropTypes.bool,
+    SHOW_NON: PropTypes.bool,
+    SHOW_1: PropTypes.bool,
+    SHOW_2: PropTypes.bool,
+    SHOW_3: PropTypes.bool,
+  }),
+  filters: PropTypes.shape({
+    fastest: PropTypes.bool,
+    cheapest: PropTypes.bool,
+  }),
+};
 
 export default ItemList;

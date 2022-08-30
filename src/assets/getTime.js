@@ -1,3 +1,4 @@
+// Функция преобразования времени с получаемых билетов
 const getTime = (date, duration) => {
   const result = [];
   let firstDate = new Date(date);

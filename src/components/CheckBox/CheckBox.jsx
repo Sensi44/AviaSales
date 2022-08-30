@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import rename from '../../assets/rename';
 import './CheckBox.scss';
+import Item from '../Item';
+import rename from '../../assets/rename';
 
 const CheckBox = ({ checked, children, onClick }) => {
   const info = rename(children);
@@ -22,6 +24,18 @@ const CheckBox = ({ checked, children, onClick }) => {
       </label>
     </div>
   );
+};
+
+Item.defaultProps = {
+  checked: true,
+  children: 'hollow',
+  onClick: () => {},
+};
+
+Item.propTypes = {
+  checked: PropTypes.bool,
+  children: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default CheckBox;

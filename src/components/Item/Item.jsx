@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './Item.scss';
 import stopsName from '../../assets/stopsName';
 import getTime from '../../assets/getTime';
-// import classes from '../../assets/css-modules/CheckBox.module.scss';
 
 const Item = (props) => {
   const { price, carrier, segments } = props.ticket;
@@ -69,16 +68,13 @@ const Item = (props) => {
 };
 
 Item.defaultProps = {
-  ticket: {},
+  price: 0,
 };
 
 Item.propTypes = {
-  // page: PropTypes.number,
-  // getPages: PropTypes.func,
-  // search: PropTypes.string,
-  todos: PropTypes.array,
-  // changePage: PropTypes.func,
-  // ratedMovies: PropTypes.array,
+  price: PropTypes.number,
+  carrier: PropTypes.string,
+  segments: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Item;

@@ -2,10 +2,10 @@ import React from 'react';
 
 import './App.scss';
 import Filters from '../Filters';
-import ItemsBox from '../../containers/ItemsBox';
 import LoadingBox from '../../containers/LoadingBox';
 import AdditionsFiltersBox from '../../containers/AdditionsFiltersBox';
-import Tabs from '../AdditionsFilters';
+import ItemsBox from '../../containers/ItemsBox';
+import Fly from '../../assets/img/fly.png';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <article>
         <header>
           <div className='logo'>
-            <img src='#' alt='#' />
+            <img src={Fly} alt='fly' />
           </div>
         </header>
         <main className='main'>

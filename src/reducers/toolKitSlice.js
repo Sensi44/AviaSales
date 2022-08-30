@@ -12,7 +12,7 @@ const initialState = {
     SHOW_3: true,
   },
   filters: {
-    fastest: true,
+    fastest: false,
     cheapest: false,
   },
   tickets: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './AdditionsFilters.scss';
 
@@ -29,5 +30,20 @@ function AdditionsFilters({ onFastest, onCheapest, filters }) {
     </div>
   );
 }
+
+AdditionsFilters.defaultProps = {
+  onFastest: () => {},
+  onCheapest: () => {},
+  filters: {},
+};
+
+AdditionsFilters.propTypes = {
+  onFastest: PropTypes.func,
+  onCheapest: PropTypes.func,
+  filters: PropTypes.shape({
+    fastest: PropTypes.bool,
+    cheapest: PropTypes.bool,
+  }),
+};
 
 export default AdditionsFilters;

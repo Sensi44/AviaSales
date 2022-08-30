@@ -14,7 +14,8 @@
   width: 50%;
   cursor: pointer;
   text-align: center;
-  line-height: 50px;
+  line-height: 48px;
+  box-sizing: border-box;
   background: #FFFFFF;
   border: 1px solid #DFE5EC;
   font-family: 'Open Sans', serif;
@@ -24,10 +25,30 @@
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #4A4A4A;
+  border-radius: 0;
 }
 
-.tabs__button:first-child {
+.tabs > .tabs__button:first-child {
   border-radius: 5px 0 0 5px;
+}
+
+.tabs > .tabs__button:nth-child(2) {
+  border-radius: 0 5px 5px 0;
+}
+
+//.tabs > .tabs__button:nth-child(2):focus {
+//  border-radius: 0 5px 5px 0;
+//  border: 1px solid #2196F3;
+//}
+
+//.tabs__button:active {
+//  border: 1px solid #2196F3;
+//}
+
+.tabs > .tabs__button:focus {
+  border: 2px solid #2196F3;
+  outline: none;
+  box-sizing: border-box;
 }
 
 .tabs > .tabs__button--active {
