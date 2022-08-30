@@ -6,11 +6,19 @@ import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 import acceptFilters from '../../assets/uesCheckBoxes';
 
 function ItemList(props) {
-  const { searchId, stop, items, checkBoxes } = props;
+  const { searchId, stop, items, checkBoxes, filters } = props;
   const timerRef = useRef(null);
   const elements = items
     .filter((item) => {
       return acceptFilters(item, checkBoxes);
+    })
+    .sort((a, b) => {
+      return filters.cheapest ? a.price - b.price : null;
+    })
+    .sort((a, b) => {
+      return filters.fastest
+        ? a.segments[0].duration - b.segments[0].duration
+        : b.segments[0].duration - a.segments[0].duration;
     })
     .map((item, index) => {
       return <Item key={index} ticket={item} />;

@@ -11,6 +11,10 @@ const initialState = {
     SHOW_2: true,
     SHOW_3: true,
   },
+  filters: {
+    fastest: true,
+    cheapest: false,
+  },
   tickets: {
     error: false,
     stop: false,
@@ -46,6 +50,16 @@ const ticketsSlice = createSlice({
         ...result,
       };
     },
+    chooseFilter(state, action) {
+      if (action.payload === 'fast') {
+        state.filters.fastest = true;
+        state.filters.cheapest = false;
+      }
+      if (action.payload === 'cheap') {
+        state.filters.fastest = false;
+        state.filters.cheapest = true;
+      }
+    },
   },
   extraReducers: {
     [fetchTickets.fulfilled]: (state, action) => {
@@ -64,6 +78,6 @@ const ticketsSlice = createSlice({
 });
 
 const { actions, reducer } = ticketsSlice;
-export const { boxToggle, testFetch } = actions;
+export const { boxToggle, chooseFilter } = actions;
 
 export default reducer;

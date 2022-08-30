@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 
-// import { boxToggle } from '../actions/actions';
 import { boxToggle } from '../reducers/toolKitSlice';
 import CheckBox from '../components/CheckBox';
 

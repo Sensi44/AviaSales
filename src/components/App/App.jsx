@@ -4,8 +4,8 @@ import './App.scss';
 import Filters from '../Filters';
 import ItemsBox from '../../containers/ItemsBox';
 import LoadingBox from '../../containers/LoadingBox';
-import startLoadingBar from '../../assets/loadingBar';
-import Tabs from '../Tabs';
+import AdditionsFiltersBox from '../../containers/AdditionsFiltersBox';
+import Tabs from '../AdditionsFilters';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
               <Filters />
             </aside>
             <div className='tickets'>
-              <Tabs />
+              <AdditionsFiltersBox />
               <ItemsBox />
             </div>
           </section>
