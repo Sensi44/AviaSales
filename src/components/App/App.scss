@@ -5,7 +5,6 @@ $main-background: #F3F7FA;
   border-radius: 5px;
 }
 .tb {
-  border: 1px solid black;
   box-sizing: border-box;
 }
 
@@ -23,13 +22,14 @@ $main-background: #F3F7FA;
 .app {
   display: flex;
   justify-content: center;
+  background-color: #e6e6e6;
 }
 
 article {
   background-color: $main-background;
   width: 960px;
   height: 1360px;
-  margin: 5px 0 5px 0;
+  margin: 2px 0 5px 0;
   @extend .tb;
   @extend .all-border;
 }
@@ -42,6 +42,12 @@ article {
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-section {
   display: flex;
   justify-content: center;
 }

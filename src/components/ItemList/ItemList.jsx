@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from 'react';
 
 import './ItemList.scss';
 import Item from '../Item';
-import LoaderLine from '../LoaderLine';
-import startLoadingBar from '../../assets/loadingBar';
 import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 import acceptFilters from '../../assets/uesCheckBoxes';
 
@@ -38,19 +36,19 @@ function ItemList(props) {
     }
   }, [searchId]);
 
-  useEffect(() => {
-    if (!stop) startLoadingBar(items.length);
-  }, [items]);
-
   if (stop) clearInterval(timerRef.current);
 
   return (
     <div className='item-list'>
-      {!stop ? <LoaderLine /> : 'Все билеты загружены -'}
-      <span> {elements.length} </span>
-      {elements.length
-        ? elements.slice(0, 5)
-        : 'Нет подходящих билетов мой лорд'}
+      {!stop ? (
+        <span> {`Билетов загружено: ${elements.length}`} </span>
+      ) : (
+        <span>
+          {' '}
+          {`Все билеты загружены, всего - ${elements.length} билетов`}{' '}
+        </span>
+      )}
+      {elements.length ? elements.slice(0, 5) : 'Нет подходящих билетов'}
     </div>
   );
 }
