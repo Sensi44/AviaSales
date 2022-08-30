@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-import reducer, { chooseFilter } from './reducers/toolKitSlice';
+import reducer from './reducers/toolKitSlice';
 import 'antd/dist/antd.min.css';
 import App from './components/App';
 
