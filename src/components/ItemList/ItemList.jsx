@@ -4,9 +4,9 @@ import React, { useEffect, useRef } from 'react';
 import './ItemList.scss';
 import PropTypes from 'prop-types';
 
-import Item from '../Item';
+import { Item } from '../Item';
 import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
-import acceptFilters from '../../assets/uesCheckBoxes';
+import acceptFilters from '../../utils/uesCheckBoxes';
 
 function ItemList(props) {
   const { searchId, stop, items, checkBoxes, filters } = props;

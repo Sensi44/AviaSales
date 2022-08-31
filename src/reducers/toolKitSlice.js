@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import chooseBoxes from '../assets/chooseBoxes';
+import chooseBoxes from '../utils/chooseBoxes';
 import { fetchId, getTickets } from '../actions/actions';
 
 const initialState = {

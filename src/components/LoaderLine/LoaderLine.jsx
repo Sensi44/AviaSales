@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './LoaderLine.scss';
-import startLoadingBar from '../../assets/loadingBar';
+import startLoadingBar from '../../utils/loadingBar';
 
 function LoaderLine(props) {
   const { stop, items } = props;

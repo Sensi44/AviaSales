@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import ItemList from '../components/ItemList';
+import { ItemList } from '../components/ItemList';
 
 const mapStateToProps = (state) => {
   const { items, stop, searchId } = state.tickets;

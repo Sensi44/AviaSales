@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import Filters from '../Filters';
+import { Filters } from '../Filters';
 import LoadingBox from '../../containers/LoadingBox';
 import AdditionsFiltersBox from '../../containers/AdditionsFiltersBox';
 import ItemsBox from '../../containers/ItemsBox';

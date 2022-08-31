@@ -1,3 +1,1 @@
-import Tabs from './AdditionsFilters';
-
-export default Tabs;
+export { default as AdditionsFilters } from './AdditionsFilters';

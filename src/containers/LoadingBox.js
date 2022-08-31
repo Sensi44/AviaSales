@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import LoaderLine from '../components/LoaderLine';
+import { LoaderLine } from '../components/LoaderLine';
 
 const mapStateToProps = (state) => {
   const { items, stop } = state.tickets;

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Item.scss';
-import stopsName from '../../assets/stopsName';
-import getTime from '../../assets/getTime';
+import stopsName from '../../utils/stopsName';
+import getTime from '../../utils/getTime';
 
 const Item = (props) => {
   const { price, carrier, segments } = props.ticket;

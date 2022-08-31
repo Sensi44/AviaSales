@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { boxToggle } from '../reducers/toolKitSlice';
-import CheckBox from '../components/CheckBox';
+import { CheckBox } from '../components/CheckBox';
 
 const mapStateToProps = (state, ownProps) => {
   return {

@@ -5,7 +5,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import reducer from './reducers/toolKitSlice';
 import 'antd/dist/antd.min.css';
-import App from './components/App';
+import { App } from './components/App';
 
 const logger = () => (next) => (action) => {
   console.log('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬');

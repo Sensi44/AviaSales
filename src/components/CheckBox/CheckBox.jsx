@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './CheckBox.scss';
-import Item from '../Item';
-import rename from '../../assets/rename';
+import { Item } from '../Item';
+import rename from '../../utils/rename';
 
 const CheckBox = ({ checked, children, onClick }) => {
   const info = rename(children);

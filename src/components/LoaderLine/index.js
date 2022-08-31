@@ -1,3 +1,1 @@
-import LoaderLine from './LoaderLine';
-
-export default LoaderLine;
+export { default as LoaderLine } from './LoaderLine';

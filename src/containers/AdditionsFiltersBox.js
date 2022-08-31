@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import AdditionsFilters from '../components/AdditionsFilters';
+import { AdditionsFilters } from '../components/AdditionsFilters';
 import { chooseFilter } from '../reducers/toolKitSlice';
 
 const mapStateToProps = (state) => {
