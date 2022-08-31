@@ -16,7 +16,7 @@ function ItemList(props) {
       return acceptFilters(item, checkBoxes);
     })
     .sort((a, b) => {
-      return filters.cheapest ? a.price - b.price : null;
+      return filters.cheapest ? a.price - b.price : b.price - a.price;
     })
     .sort((a, b) => {
       return filters.fastest
@@ -38,9 +38,8 @@ function ItemList(props) {
           searchId,
         })
       );
-    }, 1200);
+    }, 3000);
   };
-
   useEffect(() => {
     if (searchId) {
       startTimer();
