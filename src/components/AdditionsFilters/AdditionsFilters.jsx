@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './AdditionsFilters.scss';
 
 function AdditionsFilters({ onFastest, onCheapest, filters }) {
-  console.log(filters);
   const tabsClassNameFastest = filters.fastest
     ? 'tabs__button  tabs__button--active'
     : 'tabs__button';

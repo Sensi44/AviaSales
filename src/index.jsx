@@ -8,10 +8,11 @@ import 'antd/dist/antd.min.css';
 import { App } from './components/App';
 
 const logger = () => (next) => (action) => {
-  console.log('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬');
-  console.log(action.type);
+  // console.log('▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬');
+  // console.log(action.type);
   const result = next(action);
-  console.log(store.getState().tickets.items);
+  // console.log(store.getState().tickets);
+  // console.log(store.getState().tickets.items);
   return result;
 };
 

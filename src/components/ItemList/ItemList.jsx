@@ -1,15 +1,13 @@
-// eslint-disable-next-line import/order
 import React, { useEffect, useRef } from 'react';
-
-import './ItemList.scss';
 import PropTypes from 'prop-types';
+import './ItemList.scss';
 
 import { Item } from '../Item';
 import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 import acceptFilters from '../../utils/uesCheckBoxes';
 
 function ItemList(props) {
-  const { searchId, stop, items, checkBoxes, filters } = props;
+  const { searchId, stop, items, checkBoxes, filters, dispatch } = props;
   const timerRef = useRef(null);
   const elements = items
     .filter((item) => {
@@ -28,23 +26,21 @@ function ItemList(props) {
     });
 
   useEffect(() => {
-    props.dispatch(fetchSearchId());
-  }, []);
+    dispatch(fetchSearchId());
+  }, [dispatch]);
 
-  const startTimer = () => {
-    timerRef.current = setInterval(() => {
-      props.dispatch(
-        fetchTickets({
-          searchId,
-        })
-      );
-    }, 3000);
-  };
   useEffect(() => {
-    if (searchId) {
-      startTimer();
-    }
-  }, [searchId]);
+    const startTimer = () => {
+      timerRef.current = setInterval(() => {
+        dispatch(
+          fetchTickets({
+            searchId,
+          })
+        );
+      }, 2000);
+    };
+    if (searchId) startTimer();
+  }, [searchId, dispatch]);
 
   if (stop) clearInterval(timerRef.current);
 
