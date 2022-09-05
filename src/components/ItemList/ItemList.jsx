@@ -5,25 +5,26 @@ import './ItemList.scss';
 import { Item } from '../Item';
 import { fetchSearchId, fetchTickets } from '../../reducers/toolKitSlice';
 import acceptFilters from '../../utils/uesCheckBoxes';
+import quickSort from '../../utils/quickSort';
 
 function ItemList(props) {
   const { searchId, stop, items, checkBoxes, filters, dispatch } = props;
   const timerRef = useRef(null);
-  const elements = items
+  let elements = items
     .filter((item) => {
       return acceptFilters(item, checkBoxes);
-    })
-    .sort((a, b) => {
-      return filters.cheapest ? a.price - b.price : b.price - a.price;
     })
     .sort((a, b) => {
       return filters.fastest
         ? a.segments[0].duration - b.segments[0].duration
         : b.segments[0].duration - a.segments[0].duration;
-    })
-    .map((item, index) => {
-      return <Item key={index} ticket={item} />;
     });
+
+  if (filters.cheapest) elements = quickSort(elements);
+
+  elements = elements.map((item, index) => {
+    return <Item key={index} ticket={item} />;
+  });
 
   useEffect(() => {
     dispatch(fetchSearchId());
@@ -37,7 +38,7 @@ function ItemList(props) {
             searchId,
           })
         );
-      }, 2000);
+      }, 2500);
     };
     if (searchId) startTimer();
   }, [searchId, dispatch]);
